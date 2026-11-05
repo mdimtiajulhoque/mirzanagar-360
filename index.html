@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIRZANAGAR 360° | Official Website</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f6f8;
+      color: #172033;
+    }
+    header {
+      background: #071a35;
+      color: white;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .logo { font-size: 25px; font-weight: bold; color: #e5bd65; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+    .hero {
+      background: linear-gradient(120deg, #071a35, #173d65);
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h1 { font-size: 42px; color: #e5bd65; }
+    .hero p { margin: 18px auto; font-size: 18px; }
+    .hero button {
+      padding: 13px 25px;
+      background: #e5bd65;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .section { padding: 55px 8%; text-align: center; }
+    .section h2 { margin-bottom: 25px; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 30px 18px;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px #00000010;
+    }
+    footer {
+      background: #071a35;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+    @media(max-width:600px) {
+      .hero h1 { font-size: 30px; }
+      nav a { margin: 5px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">MIRZANAGAR 360°</div>
+  <nav>
+    <a href="#">হোম</a>
+    <a href="#news">সংবাদ</a>
+    <a href="#culture">সংস্কৃতি</a>
+    <a href="#contact">যোগাযোগ</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>MIRZANAGAR 360°</h1>
+  <p>Every Story. Every Moment. Every Angle.</p>
+  <p>মির্জানগরের সংবাদ, ঐতিহ্য, সংস্কৃতি ও মানুষের গল্প</p>
+  <button onclick="document.getElementById('news').scrollIntoView({behavior:'smooth'})">
+    Explore More
+  </button>
+</section>
+
+<section class="section" id="news">
+  <h2>আমাদের বিভাগসমূহ</h2>
+  <div class="cards">
+    <div class="card"><h3>📰 স্থানীয় সংবাদ</h3><p>মির্জানগরের সর্বশেষ খবর</p></div>
+    <div class="card" id="culture"><h3>🏛️ ঐতিহ্য ও সংস্কৃতি</h3><p>আমাদের ইতিহাস ও ঐতিহ্য</p></div>
+    <div class="card"><h3>⚽ খেলাধুলা</h3><p>স্থানীয় ক্রীড়াঙ্গনের খবর</p></div>
+    <div class="card"><h3>📸 ফটো গ্যালারি</h3><p>ছবি ও বিশেষ মুহূর্ত</p></div>
+    <div class="card"><h3>🎥 ভিডিও</h3><p>ভিডিও প্রতিবেদন ও গল্প</p></div>
+    <div class="card"><h3>🤝 সমাজসেবা</h3><p>মানুষ ও সমাজের উদ্যোগ</p></div>
+  </div>
+</section>
+
+<footer id="contact">
+  <h3>MIRZANAGAR 360°</h3>
+  <p>Every Story. Every Moment. Every Angle.</p>
+  <p>Contact: ourmirzanagar@gmail.com</p>
+  <p>© 2026 MIRZANAGAR 360°. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
