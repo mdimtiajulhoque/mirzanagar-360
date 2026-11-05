@@ -1,113 +1,243 @@
+
 <!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MIRZANAGAR 360° | Official Website</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f6f8;
-      color: #172033;
-    }
-    header {
-      background: #071a35;
-      color: white;
-      padding: 22px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-    .logo { font-size: 25px; font-weight: bold; color: #e5bd65; }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 18px;
-      font-size: 14px;
-    }
-    .hero {
-      background: linear-gradient(120deg, #071a35, #173d65);
-      color: white;
-      text-align: center;
-      padding: 100px 20px;
-    }
-    .hero h1 { font-size: 42px; color: #e5bd65; }
-    .hero p { margin: 18px auto; font-size: 18px; }
-    .hero button {
-      padding: 13px 25px;
-      background: #e5bd65;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .section { padding: 55px 8%; text-align: center; }
-    .section h2 { margin-bottom: 25px; }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      padding: 30px 18px;
-      border-radius: 10px;
-      box-shadow: 0 3px 15px #00000010;
-    }
-    footer {
-      background: #071a35;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-    @media(max-width:600px) {
-      .hero h1 { font-size: 30px; }
-      nav a { margin: 5px; }
-    }
-  </style>
+  <meta name="description" content="MIRZANAGAR 360° — মির্জানগরের সংবাদ, ঐতিহ্য, সংস্কৃতি, খেলাধুলা ও মানুষের গল্প।">
+  <meta name="theme-color" content="#071a35">
+  <title>MIRZANAGAR 360° | Every Story. Every Angle.</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <div class="logo">MIRZANAGAR 360°</div>
-  <nav>
-    <a href="#">হোম</a>
-    <a href="#news">সংবাদ</a>
-    <a href="#culture">সংস্কৃতি</a>
-    <a href="#contact">যোগাযোগ</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>MIRZANAGAR 360°</h1>
-  <p>Every Story. Every Moment. Every Angle.</p>
-  <p>মির্জানগরের সংবাদ, ঐতিহ্য, সংস্কৃতি ও মানুষের গল্প</p>
-  <button onclick="document.getElementById('news').scrollIntoView({behavior:'smooth'})">
-    Explore More
-  </button>
-</section>
-
-<section class="section" id="news">
-  <h2>আমাদের বিভাগসমূহ</h2>
-  <div class="cards">
-    <div class="card"><h3>📰 স্থানীয় সংবাদ</h3><p>মির্জানগরের সর্বশেষ খবর</p></div>
-    <div class="card" id="culture"><h3>🏛️ ঐতিহ্য ও সংস্কৃতি</h3><p>আমাদের ইতিহাস ও ঐতিহ্য</p></div>
-    <div class="card"><h3>⚽ খেলাধুলা</h3><p>স্থানীয় ক্রীড়াঙ্গনের খবর</p></div>
-    <div class="card"><h3>📸 ফটো গ্যালারি</h3><p>ছবি ও বিশেষ মুহূর্ত</p></div>
-    <div class="card"><h3>🎥 ভিডিও</h3><p>ভিডিও প্রতিবেদন ও গল্প</p></div>
-    <div class="card"><h3>🤝 সমাজসেবা</h3><p>মানুষ ও সমাজের উদ্যোগ</p></div>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span id="todayDate">MIRZANAGAR 360°</span>
+      <span>Every Story. Every Moment. Every Angle.</span>
+    </div>
   </div>
-</section>
 
-<footer id="contact">
-  <h3>MIRZANAGAR 360°</h3>
-  <p>Every Story. Every Moment. Every Angle.</p>
-  <p>Contact: ourmirzanagar@gmail.com</p>
-  <p>© 2026 MIRZANAGAR 360°. All Rights Reserved.</p>
-</footer>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#home">
+        <span class="brand-mark">M<span>360°</span></span>
+        <span class="brand-name">
+          <strong>MIRZANAGAR</strong>
+          <small>360° DIGITAL MEDIA</small>
+        </span>
+      </a>
 
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <nav class="nav" id="mainNav">
+        <a href="#home" data-bn="হোম" data-en="Home">হোম</a>
+        <a href="#news" data-bn="সংবাদ" data-en="News">সংবাদ</a>
+        <a href="#stories" data-bn="বিশেষ প্রতিবেদন" data-en="Stories">বিশেষ প্রতিবেদন</a>
+        <a href="#culture" data-bn="ঐতিহ্য" data-en="Culture">ঐতিহ্য</a>
+        <a href="#gallery" data-bn="গ্যালারি" data-en="Gallery">গ্যালারি</a>
+        <a href="#about" data-bn="আমাদের সম্পর্কে" data-en="About">আমাদের সম্পর্কে</a>
+        <button class="language-btn" id="languageToggle">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <span class="eyebrow">YOUR LOCAL DIGITAL MEDIA</span>
+        <h1>MIRZANAGAR <span>360°</span></h1>
+        <h2 data-bn="প্রতিটি গল্প। প্রতিটি মুহূর্ত। প্রতিটি দৃষ্টিকোণ।"
+            data-en="Every Story. Every Moment. Every Angle.">
+          প্রতিটি গল্প। প্রতিটি মুহূর্ত। প্রতিটি দৃষ্টিকোণ।
+        </h2>
+        <p data-bn="মির্জানগরের সংবাদ, ঐতিহ্য, সংস্কৃতি ও মানুষের গল্প তুলে ধরাই আমাদের লক্ষ্য।"
+           data-en="Our mission is to share Mirzanagar's news, heritage, culture and people's stories.">
+          মির্জানগরের সংবাদ, ঐতিহ্য, সংস্কৃতি ও মানুষের গল্প তুলে ধরাই আমাদের লক্ষ্য।
+        </p>
+        <div class="hero-actions">
+          <a href="#news" class="btn btn-gold" data-bn="সর্বশেষ সংবাদ" data-en="Latest News">সর্বশেষ সংবাদ</a>
+          <a href="#about" class="btn btn-outline" data-bn="আমাদের সম্পর্কে" data-en="Discover Us">আমাদের সম্পর্কে</a>
+        </div>
+      </div>
+      <div class="hero-decoration">360°</div>
+    </section>
+
+    <div class="breaking">
+      <div class="container breaking-inner">
+        <strong data-bn="সর্বশেষ" data-en="LATEST">সর্বশেষ</strong>
+        <div class="breaking-text" data-bn="MIRZANAGAR 360° — মির্জানগরের প্রতিটি খবর, প্রতিটি গল্প এক জায়গায়।"
+             data-en="MIRZANAGAR 360° — Every local update and story in one place.">
+          MIRZANAGAR 360° — মির্জানগরের প্রতিটি খবর, প্রতিটি গল্প এক জায়গায়।
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="news">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow dark">STAY INFORMED</span>
+            <h2 data-bn="সর্বশেষ সংবাদ" data-en="Latest News">সর্বশেষ সংবাদ</h2>
+            <p data-bn="আপনার এলাকার গুরুত্বপূর্ণ খবর ও আপডেট"
+               data-en="Important news and updates from your community">
+              আপনার এলাকার গুরুত্বপূর্ণ খবর ও আপডেট
+            </p>
+          </div>
+          <a href="#news" class="text-link" data-bn="সব সংবাদ" data-en="All News">সব সংবাদ →</a>
+        </div>
+
+        <div class="news-tools">
+          <input id="newsSearch" type="search" placeholder="সংবাদ খুঁজুন..." aria-label="Search news">
+          <select id="categoryFilter" aria-label="Filter news">
+            <option value="all">সব বিভাগ</option>
+            <option value="news">স্থানীয় সংবাদ</option>
+            <option value="education">শিক্ষা</option>
+            <option value="sports">খেলাধুলা</option>
+            <option value="culture">সংস্কৃতি</option>
+            <option value="community">সমাজসেবা</option>
+          </select>
+        </div>
+
+        <div class="news-grid" id="newsGrid"></div>
+        <p class="empty-message" id="emptyMessage" hidden>কোনো সংবাদ পাওয়া যায়নি।</p>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="stories">
+      <div class="container">
+        <div class="section-heading light-heading">
+          <div>
+            <span class="eyebrow">BEYOND THE HEADLINES</span>
+            <h2 data-bn="বিশেষ প্রতিবেদন ও মানুষের গল্প"
+                data-en="Featured Stories & People">বিশেষ প্রতিবেদন ও মানুষের গল্প</h2>
+            <p data-bn="আমাদের এলাকার মানুষ, সম্ভাবনা ও অনুপ্রেরণার গল্প"
+               data-en="Stories of people, possibilities and inspiration from our community">
+              আমাদের এলাকার মানুষ, সম্ভাবনা ও অনুপ্রেরণার গল্প
+            </p>
+          </div>
+        </div>
+
+        <div class="story-grid">
+          <article class="story-card story-one">
+            <span>COMMUNITY</span>
+            <h3>আমাদের মানুষ, আমাদের পরিচয়</h3>
+            <p>মির্জানগরের মানুষের জীবন, উদ্যোগ ও অনুপ্রেরণার গল্প।</p>
+          </article>
+          <article class="story-card story-two">
+            <span>HERITAGE</span>
+            <h3>ঐতিহ্যের পথে</h3>
+            <p>স্থানীয় ইতিহাস, সংস্কৃতি ও স্মৃতির গল্প।</p>
+          </article>
+          <article class="story-card story-three">
+            <span>EDUCATION</span>
+            <h3>আগামীর সম্ভাবনা</h3>
+            <p>শিক্ষা, তরুণ প্রজন্ম ও সাফল্যের গল্প।</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="culture">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow dark">OUR ROOTS</span>
+            <h2 data-bn="ঐতিহ্য ও সংস্কৃতি" data-en="Heritage & Culture">ঐতিহ্য ও সংস্কৃতি</h2>
+            <p data-bn="নিজ এলাকার ইতিহাস ও সাংস্কৃতিক পরিচয় তুলে ধরি"
+               data-en="Celebrating our local history and cultural identity">
+              নিজ এলাকার ইতিহাস ও সাংস্কৃতিক পরিচয় তুলে ধরি
+            </p>
+          </div>
+        </div>
+        <div class="category-grid">
+          <div class="category-card"><span>🏛️</span><h3>ইতিহাস ও ঐতিহ্য</h3></div>
+          <div class="category-card"><span>🎭</span><h3>সংস্কৃতি ও অনুষ্ঠান</h3></div>
+          <div class="category-card"><span>🕌</span><h3>ধর্মীয় ও সামাজিক আয়োজন</h3></div>
+          <div class="category-card"><span>⚽</span><h3>খেলাধুলা</h3></div>
+          <div class="category-card"><span>🎓</span><h3>শিক্ষা ও ক্যাম্পাস</h3></div>
+          <div class="category-card"><span>🤝</span><h3>সমাজসেবা</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow dark">VISUAL STORIES</span>
+            <h2 data-bn="ফটো ও ভিডিও গ্যালারি" data-en="Photo & Video Gallery">ফটো ও ভিডিও গ্যালারি</h2>
+            <p data-bn="ছবি ও ভিডিওতে আমাদের এলাকার বিশেষ মুহূর্ত"
+               data-en="Special moments from our community in photos and videos">
+              ছবি ও ভিডিওতে আমাদের এলাকার বিশেষ মুহূর্ত
+            </p>
+          </div>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item gallery-a"><span>LOCAL LIFE</span></div>
+          <div class="gallery-item gallery-b"><span>OUR CULTURE</span></div>
+          <div class="gallery-item gallery-c"><span>COMMUNITY</span></div>
+          <div class="gallery-item gallery-d"><span>EVENTS</span></div>
+        </div>
+        <p class="gallery-note">এখানে পরবর্তীতে তোমাদের নিজস্ব ছবি ও ভিডিও যুক্ত করা হবে।</p>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="container about-inner">
+        <div>
+          <span class="eyebrow">WHO WE ARE</span>
+          <h2>About MIRZANAGAR 360°</h2>
+        </div>
+        <div>
+          <p>
+            MIRZANAGAR 360° একটি স্থানীয় ডিজিটাল মিডিয়া উদ্যোগ।
+            মির্জানগরের সংবাদ, ইতিহাস, ঐতিহ্য, সংস্কৃতি, শিক্ষা,
+            খেলাধুলা ও সামাজিক কর্মকাণ্ড মানুষের কাছে তুলে ধরাই আমাদের উদ্দেশ্য।
+          </p>
+          <p>
+            আমরা সত্যনিষ্ঠ, দায়িত্বশীল ও ইতিবাচক স্থানীয় তথ্য প্রকাশে প্রতিশ্রুতিবদ্ধ।
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-inner">
+        <span class="eyebrow dark">GET IN TOUCH</span>
+        <h2>আপনার গল্প আমাদের জানান</h2>
+        <p>সংবাদ, ছবি, ভিডিও অথবা মতামত পাঠাতে যোগাযোগ করুন।</p>
+        <a class="btn btn-navy" href="mailto:ourmirzanagar@gmail.com">
+          Email: ourmirzanagar@gmail.com
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-main">
+      <div>
+        <div class="footer-brand">MIRZANAGAR <span>360°</span></div>
+        <p>Every Story. Every Moment. Every Angle.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="#news">সংবাদ</a>
+        <a href="#culture">ঐতিহ্য ও সংস্কৃতি</a>
+        <a href="#gallery">গ্যালারি</a>
+        <a href="#about">আমাদের সম্পর্কে</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <a href="mailto:ourmirzanagar@gmail.com">ourmirzanagar@gmail.com</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> MIRZANAGAR 360°. All Rights Reserved.</span>
+      <span>Independent Local Digital Media</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
