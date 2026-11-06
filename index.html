@@ -2,266 +2,417 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MIRZANAGAR 360° — মির্জানগরের সংবাদ, ঐতিহ্য, সংস্কৃতি, খেলাধুলা ও মানুষের গল্প।">
-  <meta name="theme-color" content="#071a35">
-  <title>MIRZANAGAR 360° | Every Story. Every Angle.</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b35">
+<meta name="description" content="Mirzanagar 360 - History, Heritage, Culture, Education, Sports and Community News.">
+<title>Mirzanagar 360° | Our Community, Our Identity</title>
+
+<style>
+:root {
+  --navy:#071b35;
+  --navy2:#102b4c;
+  --gold:#d4af37;
+  --white:#ffffff;
+  --light:#f3f6fa;
+  --text:#253348;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ font-family:Arial,'Noto Sans Bengali',sans-serif;
+ background:var(--light);
+ color:var(--text);
+ line-height:1.7;
+}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1120px,92%);margin:auto}
+header{
+ background:var(--navy);
+ color:white;
+ position:sticky;top:0;z-index:1000;
+ box-shadow:0 3px 15px #0002;
+}
+.topbar{
+ background:#041326;color:#e5e5e5;
+ text-align:center;padding:6px;font-size:12px;
+}
+.nav{
+ display:flex;align-items:center;
+ justify-content:space-between;
+ gap:15px;padding:14px 0;
+}
+.logo{font-size:23px;font-weight:900;color:white}
+.logo span{color:var(--gold)}
+nav{display:flex;align-items:center;gap:17px;flex-wrap:wrap}
+nav a{font-size:13px;color:#fff}
+nav a:hover{color:var(--gold)}
+.lang{
+ background:var(--gold);border:0;
+ padding:8px 12px;border-radius:6px;
+ font-weight:bold;cursor:pointer;
+}
+.menu-btn{display:none;background:none;color:white;border:0;font-size:25px}
+.hero{
+ min-height:490px;
+ display:flex;align-items:center;
+ color:white;text-align:center;
+ background:linear-gradient(90deg,#071b35eF,#071b3590),
+ linear-gradient(135deg,#173b60,#071b35);
+}
+.hero-content{padding:90px 0;width:100%}
+.eyebrow{color:var(--gold);letter-spacing:3px;font-weight:bold}
+.hero h1{font-size:clamp(38px,7vw,72px);line-height:1.15;margin:15px 0}
+.hero p{max-width:680px;margin:0 auto 25px;color:#e4eaf1}
+.btn{
+ display:inline-block;padding:11px 22px;
+ border-radius:5px;background:var(--gold);
+ color:var(--navy);font-weight:bold;
+ margin:5px;border:0;cursor:pointer;
+}
+.btn-outline{background:transparent;border:1px solid var(--gold);color:white}
+section{padding:65px 0}
+.section-head{text-align:center;margin-bottom:32px}
+.section-head small{color:#b18b22;font-weight:bold;letter-spacing:2px}
+.section-head h2{font-size:30px;color:var(--navy);margin:5px 0}
+.section-head p{color:#697587}
+.about-grid,.founder-grid{
+ display:grid;grid-template-columns:1fr 1fr;
+ gap:35px;align-items:center;
+}
+.about-box,.content-box{
+ background:white;padding:28px;border-radius:12px;
+ box-shadow:0 5px 25px #071b3510;
+}
+.about-box h3,.content-box h3{color:var(--navy);margin-bottom:12px}
+.about-image{
+ min-height:280px;border-radius:12px;
+ background:linear-gradient(135deg,#173b60,#d4af37);
+ display:grid;place-items:center;color:white;
+ font-size:25px;font-weight:bold;
+}
+.founder-section{background:#e9eef5}
+.founder-card{
+ background:white;border-radius:15px;
+ padding:30px;display:grid;
+ grid-template-columns:240px 1fr;gap:30px;
+ align-items:center;
+ box-shadow:0 8px 30px #071b3512;
+}
+.founder-image{
+ width:240px;height:280px;
+ object-fit:cover;border-radius:12px;
+ border:4px solid var(--gold);
+ background:#eee;
+}
+.founder-label{
+ color:#a47e17;font-weight:bold;
+ letter-spacing:2px;font-size:12px;
+}
+.founder-card h2{font-size:29px;color:var(--navy);margin:10px 0}
+.founder-card h3{color:#a47e17;font-size:17px;margin-bottom:12px}
+.cards{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:20px;
+}
+.card{
+ background:white;border-radius:12px;
+ padding:25px;box-shadow:0 5px 20px #071b3510;
+ border-bottom:3px solid var(--gold);
+}
+.card .symbol{font-size:32px}
+.card h3{color:var(--navy);margin:10px 0}
+.card p{color:#687588;font-size:14px}
+.news-card{
+ background:white;border-radius:10px;
+ padding:22px;border:1px solid #e4e9ef;
+}
+.news-card h3{color:var(--navy)}
+.news-card small{color:#a47e17}
+.gallery-grid{
+ display:grid;grid-template-columns:repeat(3,1fr);gap:15px;
+}
+.gallery-item{
+ min-height:170px;background:#dce4ed;
+ border-radius:10px;overflow:hidden;
+ display:grid;place-items:center;
+ color:#52637a;font-weight:bold;
+}
+.gallery-item img{width:100%;height:190px;object-fit:cover}
+.video-box{
+ background:var(--navy);color:white;
+ text-align:center;padding:35px;border-radius:12px;
+}
+.contact-grid{
+ display:grid;grid-template-columns:1fr 1fr;gap:25px;
+}
+input,textarea{
+ width:100%;padding:12px;margin:7px 0;
+ border:1px solid #d6dce5;border-radius:6px;
+ font:inherit;
+}
+textarea{min-height:120px}
+footer{background:#041326;color:#dce4ee;padding:40px 0 15px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
+footer h3{color:var(--gold);margin-bottom:12px}
+footer a{display:block;margin:6px 0;font-size:14px}
+.copyright{text-align:center;border-top:1px solid #ffffff20;margin-top:25px;padding-top:15px;font-size:12px}
+@media(max-width:760px){
+ .nav{flex-wrap:wrap}
+ .menu-btn{display:block}
+ nav{display:none;width:100%;flex-direction:column;align-items:flex-start;padding:10px 0}
+ nav.open{display:flex}
+ .about-grid,.founder-grid,.contact-grid{grid-template-columns:1fr}
+ .founder-card{grid-template-columns:1fr;text-align:center}
+ .founder-image{margin:auto;width:200px;height:230px}
+ .cards{grid-template-columns:1fr 1fr}
+ .gallery-grid{grid-template-columns:1fr 1fr}
+ .footer-grid{grid-template-columns:1fr}
+ .hero{min-height:400px}
+}
+@media(max-width:430px){
+ .cards{grid-template-columns:1fr}
+ .gallery-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
+
 <body>
 
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span id="todayDate">MIRZANAGAR 360°</span>
-      <span>Every Story. Every Moment. Every Angle.</span>
-    </div>
+<header>
+ <div class="topbar" data-bn="মির্জানগরের গল্প, ঐতিহ্য ও মানুষের কথা"
+ data-en="Stories, Heritage and People of Mirzanagar">
+ মির্জানগরের গল্প, ঐতিহ্য ও মানুষের কথা
+ </div>
+ <div class="container nav">
+  <a class="logo" href="#home">MIRZANAGAR <span>360°</span></a>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <nav id="nav">
+   <a href="#home" data-bn="হোম" data-en="Home">হোম</a>
+   <a href="#about" data-bn="আমাদের সম্পর্কে" data-en="About">আমাদের সম্পর্কে</a>
+   <a href="#founder" data-bn="প্রতিষ্ঠাতা" data-en="Founder">প্রতিষ্ঠাতা</a>
+   <a href="#explore" data-bn="অনুসন্ধান" data-en="Explore">অনুসন্ধান</a>
+   <a href="#news" data-bn="সংবাদ" data-en="News">সংবাদ</a>
+   <a href="#gallery" data-bn="গ্যালারি" data-en="Gallery">গ্যালারি</a>
+   <a href="#contact" data-bn="যোগাযোগ" data-en="Contact">যোগাযোগ</a>
+   <button class="lang" onclick="toggleLanguage()">EN / বাংলা</button>
+  </nav>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="container hero-content">
+  <div class="eyebrow">WELCOME TO MIRZANAGAR</div>
+  <h1>MIRZANAGAR 360°</h1>
+  <p data-bn="আমাদের ইতিহাস, আমাদের ঐতিহ্য, আমাদের সংস্কৃতি এবং আমাদের মানুষের গল্প।"
+  data-en="Our history, our heritage, our culture and the stories of our people.">
+  আমাদের ইতিহাস, আমাদের ঐতিহ্য, আমাদের সংস্কৃতি এবং আমাদের মানুষের গল্প।
+  </p>
+  <a href="#about" class="btn" data-bn="আমাদের সম্পর্কে জানুন" data-en="Discover More">আমাদের সম্পর্কে জানুন</a>
+  <a href="#gallery" class="btn btn-outline" data-bn="গ্যালারি দেখুন" data-en="Explore Gallery">গ্যালারি দেখুন</a>
+ </div>
+</section>
+
+<section id="about">
+ <div class="container">
+  <div class="section-head">
+   <small>WHO WE ARE</small>
+   <h2 data-bn="মির্জানগর ৩৬০° সম্পর্কে" data-en="About Mirzanagar 360°">মির্জানগর ৩৬০° সম্পর্কে</h2>
+   <p data-bn="আমাদের শেকড়, আমাদের পরিচয়।" data-en="Our roots, our identity.">আমাদের শেকড়, আমাদের পরিচয়।</p>
   </div>
+  <div class="about-grid">
+   <div class="about-box">
+    <h3>Mirzanagar 360°</h3>
+    <p data-bn="মির্জানগরের ইতিহাস, ঐতিহ্য, সংস্কৃতি, শিক্ষা, খেলাধুলা, সামাজিক কার্যক্রম এবং মানুষের জীবনযাত্রার গল্প তুলে ধরাই আমাদের উদ্দেশ্য।"
+    data-en="Our mission is to highlight the history, heritage, culture, education, sports, community activities and everyday stories of Mirzanagar.">
+    মির্জানগরের ইতিহাস, ঐতিহ্য, সংস্কৃতি, শিক্ষা, খেলাধুলা, সামাজিক কার্যক্রম এবং মানুষের জীবনযাত্রার গল্প তুলে ধরাই আমাদের উদ্দেশ্য।
+    </p>
+   </div>
+   <div class="about-image">OUR COMMUNITY · OUR IDENTITY</div>
+  </div>
+ </div>
+</section>
 
-  <header class="header">
-    <div class="container header-inner">
-      <a class="brand" href="#home">
-        <span class="brand-mark">M<span>360°</span></span>
-        <span class="brand-name">
-          <strong>MIRZANAGAR</strong>
-          <small>360° DIGITAL MEDIA</small>
-        </span>
-      </a>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
-
-      <nav class="nav" id="mainNav">
-        <a href="#home" data-bn="হোম" data-en="Home">হোম</a>
-        <a href="#news" data-bn="সংবাদ" data-en="News">সংবাদ</a>
-        <a href="#stories" data-bn="বিশেষ প্রতিবেদন" data-en="Stories">বিশেষ প্রতিবেদন</a>
-        <a href="#culture" data-bn="ঐতিহ্য" data-en="Culture">ঐতিহ্য</a>
-        <a href="#gallery" data-bn="গ্যালারি" data-en="Gallery">গ্যালারি</a>
-        <a href="#about" data-bn="আমাদের সম্পর্কে" data-en="About">আমাদের সম্পর্কে</a>
-        <button class="language-btn" id="languageToggle">EN</button>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-content">
-        <span class="eyebrow">YOUR LOCAL DIGITAL MEDIA</span>
-        <h1>MIRZANAGAR <span>360°</span></h1>
-        <h2 data-bn="প্রতিটি গল্প। প্রতিটি মুহূর্ত। প্রতিটি দৃষ্টিকোণ।"
-            data-en="Every Story. Every Moment. Every Angle.">
-          প্রতিটি গল্প। প্রতিটি মুহূর্ত। প্রতিটি দৃষ্টিকোণ।
-        </h2>
-        <p data-bn="মির্জানগরের সংবাদ, ঐতিহ্য, সংস্কৃতি ও মানুষের গল্প তুলে ধরাই আমাদের লক্ষ্য।"
-           data-en="Our mission is to share Mirzanagar's news, heritage, culture and people's stories.">
-          মির্জানগরের সংবাদ, ঐতিহ্য, সংস্কৃতি ও মানুষের গল্প তুলে ধরাই আমাদের লক্ষ্য।
-        </p>
-        <div class="hero-actions">
-          <a href="#news" class="btn btn-gold" data-bn="সর্বশেষ সংবাদ" data-en="Latest News">সর্বশেষ সংবাদ</a>
-          <a href="#about" class="btn btn-outline" data-bn="আমাদের সম্পর্কে" data-en="Discover Us">আমাদের সম্পর্কে</a>
-        </div>
-      </div>
-      <div class="hero-decoration">360°</div>
-    </section>
-
-    <div class="breaking">
-      <div class="container breaking-inner">
-        <strong data-bn="সর্বশেষ" data-en="LATEST">সর্বশেষ</strong>
-        <div class="breaking-text" data-bn="MIRZANAGAR 360° — মির্জানগরের প্রতিটি খবর, প্রতিটি গল্প এক জায়গায়।"
-             data-en="MIRZANAGAR 360° — Every local update and story in one place.">
-          MIRZANAGAR 360° — মির্জানগরের প্রতিটি খবর, প্রতিটি গল্প এক জায়গায়।
-        </div>
-      </div>
-    </div>
-
-    <section class="section" id="news">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow dark">STAY INFORMED</span>
-            <h2 data-bn="সর্বশেষ সংবাদ" data-en="Latest News">সর্বশেষ সংবাদ</h2>
-            <p data-bn="আপনার এলাকার গুরুত্বপূর্ণ খবর ও আপডেট"
-               data-en="Important news and updates from your community">
-              আপনার এলাকার গুরুত্বপূর্ণ খবর ও আপডেট
-            </p>
-          </div>
-          <a href="#news" class="text-link" data-bn="সব সংবাদ" data-en="All News">সব সংবাদ →</a>
-        </div>
-
-        <div class="news-tools">
-          <input id="newsSearch" type="search" placeholder="সংবাদ খুঁজুন..." aria-label="Search news">
-          <select id="categoryFilter" aria-label="Filter news">
-            <option value="all">সব বিভাগ</option>
-            <option value="news">স্থানীয় সংবাদ</option>
-            <option value="education">শিক্ষা</option>
-            <option value="sports">খেলাধুলা</option>
-            <option value="culture">সংস্কৃতি</option>
-            <option value="community">সমাজসেবা</option>
-          </select>
-        </div>
-
-        <div class="news-grid" id="newsGrid"></div>
-        <p class="empty-message" id="emptyMessage" hidden>কোনো সংবাদ পাওয়া যায়নি।</p>
-      </div>
-    </section>
-
-    <section class="section dark-section" id="stories">
-      <div class="container">
-        <div class="section-heading light-heading">
-          <div>
-            <span class="eyebrow">BEYOND THE HEADLINES</span>
-            <h2 data-bn="বিশেষ প্রতিবেদন ও মানুষের গল্প"
-                data-en="Featured Stories & People">বিশেষ প্রতিবেদন ও মানুষের গল্প</h2>
-            <p data-bn="আমাদের এলাকার মানুষ, সম্ভাবনা ও অনুপ্রেরণার গল্প"
-               data-en="Stories of people, possibilities and inspiration from our community">
-              আমাদের এলাকার মানুষ, সম্ভাবনা ও অনুপ্রেরণার গল্প
-            </p>
-          </div>
-        </div>
-
-        <div class="story-grid">
-          <article class="story-card story-one">
-            <span>COMMUNITY</span>
-            <h3>আমাদের মানুষ, আমাদের পরিচয়</h3>
-            <p>মির্জানগরের মানুষের জীবন, উদ্যোগ ও অনুপ্রেরণার গল্প।</p>
-          </article>
-          <article class="story-card story-two">
-            <span>HERITAGE</span>
-            <h3>ঐতিহ্যের পথে</h3>
-            <p>স্থানীয় ইতিহাস, সংস্কৃতি ও স্মৃতির গল্প।</p>
-          </article>
-          <article class="story-card story-three">
-            <span>EDUCATION</span>
-            <h3>আগামীর সম্ভাবনা</h3>
-            <p>শিক্ষা, তরুণ প্রজন্ম ও সাফল্যের গল্প।</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="culture">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow dark">OUR ROOTS</span>
-            <h2 data-bn="ঐতিহ্য ও সংস্কৃতি" data-en="Heritage & Culture">ঐতিহ্য ও সংস্কৃতি</h2>
-            <p data-bn="নিজ এলাকার ইতিহাস ও সাংস্কৃতিক পরিচয় তুলে ধরি"
-               data-en="Celebrating our local history and cultural identity">
-              নিজ এলাকার ইতিহাস ও সাংস্কৃতিক পরিচয় তুলে ধরি
-            </p>
-          </div>
-        </div>
-        <div class="category-grid">
-          <div class="category-card"><span>🏛️</span><h3>ইতিহাস ও ঐতিহ্য</h3></div>
-          <div class="category-card"><span>🎭</span><h3>সংস্কৃতি ও অনুষ্ঠান</h3></div>
-          <div class="category-card"><span>🕌</span><h3>ধর্মীয় ও সামাজিক আয়োজন</h3></div>
-          <div class="category-card"><span>⚽</span><h3>খেলাধুলা</h3></div>
-          <div class="category-card"><span>🎓</span><h3>শিক্ষা ও ক্যাম্পাস</h3></div>
-          <div class="category-card"><span>🤝</span><h3>সমাজসেবা</h3></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section gallery-section" id="gallery">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow dark">VISUAL STORIES</span>
-            <h2 data-bn="ফটো ও ভিডিও গ্যালারি" data-en="Photo & Video Gallery">ফটো ও ভিডিও গ্যালারি</h2>
-            <p data-bn="ছবি ও ভিডিওতে আমাদের এলাকার বিশেষ মুহূর্ত"
-               data-en="Special moments from our community in photos and videos">
-              ছবি ও ভিডিওতে আমাদের এলাকার বিশেষ মুহূর্ত
-            </p>
-          </div>
-        </div>
-        <div class="gallery-grid">
-          <div class="gallery-item gallery-a"><span>LOCAL LIFE</span></div>
-          <div class="gallery-item gallery-b"><span>OUR CULTURE</span></div>
-          <div class="gallery-item gallery-c"><span>COMMUNITY</span></div>
-          <div class="gallery-item gallery-d"><span>EVENTS</span></div>
-        </div>
-        <p class="gallery-note">এখানে পরবর্তীতে তোমাদের নিজস্ব ছবি ও ভিডিও যুক্ত করা হবে।</p>
-      </div>
-    </section>
-
-    <section class="
-<!-- Founder Profile -->
-<div class="founder-section">
+<section class="founder-section" id="founder">
+ <div class="container">
+  <div class="section-head">
+   <small>THE PERSON BEHIND THE VISION</small>
+   <h2>Our Founder</h2>
+  </div>
   <div class="founder-card">
-    <div class="founder-avatar">M</div>
-
-    <div class="founder-info">
-      <span class="eyebrow">FOUNDER & LEAD</span>
-
-      <h3>MD Imtiajul Hoque</h3>
-
-      <p class="founder-title">
-        Founder & Founder-in-Chief
-      </p>
-
-      <p>
-        MIRZANAGAR 360°-এর প্রতিষ্ঠাতা হিসেবে স্থানীয় সংবাদ,
-        ঐতিহ্য, সংস্কৃতি ও মানুষের গল্প তুলে ধরার লক্ষ্যে
-        এই ডিজিটাল মিডিয়া প্ল্যাটফর্মের যাত্রা শুরু।
-      </p>
-    </div>
+   <img src="founder.jpg" alt="MD Imtiajul Hoque - Founder of Mirzanagar 360" class="founder-image">
+   <div>
+    <span class="founder-label">FOUNDER & ADMINISTRATOR</span>
+    <h2>MD Imtiajul Hoque</h2>
+    <h3>Founder of Mirzanagar 360°</h3>
+    <p data-bn="মির্জানগরের ইতিহাস, ঐতিহ্য, সংস্কৃতি ও মানুষের গল্পকে ডিজিটাল মাধ্যমে সংরক্ষণ এবং সবার সামনে তুলে ধরার স্বপ্ন নিয়ে Mirzanagar 360°-এর যাত্রা।"
+    data-en="Mirzanagar 360° began with a vision to preserve and share the history, heritage, culture and stories of Mirzanagar through digital media.">
+    মির্জানগরের ইতিহাস, ঐতিহ্য, সংস্কৃতি ও মানুষের গল্পকে ডিজিটাল মাধ্যমে সংরক্ষণ এবং সবার সামনে তুলে ধরার স্বপ্ন নিয়ে Mirzanagar 360°-এর যাত্রা।
+    </p>
+   </div>
   </div>
-</div>
-" id="about">
-      <div class="container about-inner">
-        <div>
-          <span class="eyebrow">WHO WE ARE</span>
-          <h2>About MIRZANAGAR 360°</h2>
-        </div>
-        <div>
-          <p>
-            MIRZANAGAR 360° একটি স্থানীয় ডিজিটাল মিডিয়া উদ্যোগ।
-            মির্জানগরের সংবাদ, ইতিহাস, ঐতিহ্য, সংস্কৃতি, শিক্ষা,
-            খেলাধুলা ও সামাজিক কর্মকাণ্ড মানুষের কাছে তুলে ধরাই আমাদের উদ্দেশ্য।
-          </p>
-          <p>
-            আমরা সত্যনিষ্ঠ, দায়িত্বশীল ও ইতিবাচক স্থানীয় তথ্য প্রকাশে প্রতিশ্রুতিবদ্ধ।
-          </p>
-        </div>
-      </div>
-    </section>
+ </div>
+</section>
 
-    <section class="section contact-section" id="contact">
-      <div class="container contact-inner">
-        <span class="eyebrow dark">GET IN TOUCH</span>
-        <h2>আপনার গল্প আমাদের জানান</h2>
-        <p>সংবাদ, ছবি, ভিডিও অথবা মতামত পাঠাতে যোগাযোগ করুন।</p>
-        <a class="btn btn-navy" href="mailto:ourmirzanagar@gmail.com">
-          Email: ourmirzanagar@gmail.com
-        </a>
-      </div>
-    </section>
-  </main>
+<section id="explore">
+ <div class="container">
+  <div class="section-head">
+   <small>DISCOVER OUR COMMUNITY</small>
+   <h2 data-bn="আমাদের মির্জানগর" data-en="Explore Mirzanagar">আমাদের মির্জানগর</h2>
+  </div>
+  <div class="cards">
+   <article class="card"><div class="symbol">🏛️</div><h3 data-bn="ইতিহাস ও ঐতিহ্য" data-en="History & Heritage">ইতিহাস ও ঐতিহ্য</h3><p data-bn="আমাদের এলাকার ইতিহাস ও ঐতিহ্যের গল্প।" data-en="Stories of our local history and heritage.">আমাদের এলাকার ইতিহাস ও ঐতিহ্যের গল্প।</p></article>
+   <article class="card"><div class="symbol">🎭</div><h3 data-bn="সংস্কৃতি" data-en="Culture">সংস্কৃতি</h3><p data-bn="লোকজ সংস্কৃতি, উৎসব ও সামাজিক আয়োজন।" data-en="Folk culture, festivals and community events.">লোকজ সংস্কৃতি, উৎসব ও সামাজিক আয়োজন।</p></article>
+   <article class="card"><div class="symbol">🎓</div><h3 data-bn="শিক্ষা" data-en="Education">শিক্ষা</h3><p data-bn="শিক্ষাপ্রতিষ্ঠান, শিক্ষার্থী ও অর্জন।" data-en="Institutions, students and achievements.">শিক্ষাপ্রতিষ্ঠান, শিক্ষার্থী ও অর্জন।</p></article>
+   <article class="card"><div class="symbol">⚽</div><h3 data-bn="খেলাধুলা" data-en="Sports">খেলাধুলা</h3><p data-bn="স্থানীয় ক্রীড়া ও খেলাধুলার সংবাদ।" data-en="Local sports and sporting updates.">স্থানীয় ক্রীড়া ও খেলাধুলার সংবাদ।</p></article>
+   <article class="card"><div class="symbol">🤝</div><h3 data-bn="সমাজসেবা" data-en="Social Work">সমাজসেবা</h3><p data-bn="মানবিক উদ্যোগ ও সামাজিক কার্যক্রম।" data-en="Humanitarian initiatives and community activities.">মানবিক উদ্যোগ ও সামাজিক কার্যক্রম।</p></article>
+   <article class="card"><div class="symbol">🌍</div><h3 data-bn="প্রবাস জীবন" data-en="Our Diaspora">প্রবাস জীবন</h3><p data-bn="প্রবাসে থাকা মির্জানগরের মানুষের গল্প।" data-en="Stories of Mirzanagar people living abroad.">প্রবাসে থাকা মির্জানগরের মানুষের গল্প।</p></article>
+  </div>
+ </div>
+</section>
 
-  <footer class="footer">
-    <div class="container footer-main">
-      <div>
-        <div class="footer-brand">MIRZANAGAR <span>360°</span></div>
-        <p>Every Story. Every Moment. Every Angle.</p>
-      </div>
-      <div>
-        <h3>Explore</h3>
-        <a href="#news">সংবাদ</a>
-        <a href="#culture">ঐতিহ্য ও সংস্কৃতি</a>
-        <a href="#gallery">গ্যালারি</a>
-        <a href="#about">আমাদের সম্পর্কে</a>
-      </div>
-      <div>
-        <h3>Contact</h3>
-        <a href="mailto:ourmirzanagar@gmail.com">ourmirzanagar@gmail.com</a>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span id="year"></span> MIRZANAGAR 360°. All Rights Reserved.</span>
-      <span>Independent Local Digital Media</span>
-    </div>
-  </footer>
+<section id="news">
+ <div class="container">
+  <div class="section-head">
+   <small>STAY INFORMED</small>
+   <h2 data-bn="সংবাদ ও আপডেট" data-en="News & Updates">সংবাদ ও আপডেট</h2>
+   <p data-bn="মির্জানগরের সর্বশেষ খবর ও গুরুত্বপূর্ণ তথ্য।" data-en="Latest news and important updates from Mirzanagar.">মির্জানগরের সর্বশেষ খবর ও গুরুত্বপূর্ণ তথ্য।</p>
+  </div>
+  <div class="cards">
+   <article class="news-card"><small>NEWS & COMMUNITY</small><h3 data-bn="স্থানীয় সংবাদ" data-en="Local News">স্থানীয় সংবাদ</h3><p data-bn="এখানে স্থানীয় সংবাদ ও আপডেট প্রকাশ করা হবে।" data-en="Local news and updates will be published here.">এখানে স্থানীয় সংবাদ ও আপডেট প্রকাশ করা হবে।</p></article>
+   <article class="news-card"><small>EVENTS</small><h3 data-bn="ইভেন্ট ও আয়োজন" data-en="Events">ইভেন্ট ও আয়োজন</h3><p data-bn="এখানে অনুষ্ঠান ও সামাজিক আয়োজনের তথ্য থাকবে।" data-en="Information about events and community gatherings will appear here.">এখানে অনুষ্ঠান ও সামাজিক আয়োজনের তথ্য থাকবে।</p></article>
+   <article class="news-card"><small>ANNOUNCEMENTS</small><h3 data-bn="গুরুত্বপূর্ণ বিজ্ঞপ্তি" data-en="Announcements">গুরুত্বপূর্ণ বিজ্ঞপ্তি</h3><p data-bn="এখানে গুরুত্বপূর্ণ বিজ্ঞপ্তি প্রকাশ করা হবে।" data-en="Important announcements will be published here.">এখানে গুরুত্বপূর্ণ বিজ্ঞপ্তি প্রকাশ করা হবে।</p></article>
+  </div>
+ </div>
+</section>
 
-  <script src="script.js"></script>
+<section id="gallery">
+ <div class="container">
+  <div class="section-head">
+   <small>VISUAL STORIES</small>
+   <h2 data-bn="ফটো গ্যালারি" data-en="Photo Gallery">ফটো গ্যালারি</h2>
+   <p data-bn="মির্জানগরের স্মৃতি ও সৌন্দর্যের কিছু মুহূর্ত।" data-en="Moments of memories and beauty from Mirzanagar.">মির্জানগরের স্মৃতি ও সৌন্দর্যের কিছু মুহূর্ত।</p>
+  </div>
+  <div class="gallery-grid">
+   <div class="gallery-item">Photo 01</div>
+   <div class="gallery-item">Photo 02</div>
+   <div class="gallery-item">Photo 03</div>
+   <div class="gallery-item">Photo 04</div>
+   <div class="gallery-item">Photo 05</div>
+   <div class="gallery-item">Photo 06</div>
+  </div>
+  <p style="text-align:center;margin-top:22px;color:#687588;font-size:13px">
+   Gallery photos can be added by uploading image files to your repository.
+  </p>
+ </div>
+</section>
+
+<section id="videos">
+ <div class="container">
+  <div class="section-head">
+   <small>WATCH & DISCOVER</small>
+   <h2 data-bn="ভিডিও গ্যালারি" data-en="Video Gallery">ভিডিও গ্যালারি</h2>
+  </div>
+  <div class="video-box">
+   <h3>Our Mirzanagar Official</h3>
+   <p data-bn="মির্জানগরের গল্প দেখতে আমাদের ভিডিও প্ল্যাটফর্ম অনুসরণ করুন।"
+   data-en="Follow our video platform to discover more stories from Mirzanagar.">
+   মির্জানগরের গল্প দেখতে আমাদের ভিডিও প্ল্যাটফর্ম অনুসরণ করুন।
+   </p>
+   <a class="btn" href="https://www.youtube.com/" target="_blank" rel="noopener">Visit YouTube</a>
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="container">
+  <div class="section-head">
+   <small>GET IN TOUCH</small>
+   <h2 data-bn="যোগাযোগ করুন" data-en="Contact Us">যোগাযোগ করুন</h2>
+  </div>
+  <div class="contact-grid">
+   <div class="content-box">
+    <h3>Mirzanagar 360°</h3>
+    <p>Email: ourmirzanagar@gmail.com</p>
+    <p data-bn="সংবাদ, ছবি, ভিডিও ও সহযোগিতার জন্য আমাদের সঙ্গে যোগাযোগ করুন।"
+    data-en="Contact us for news, photos, videos and collaborations.">
+    সংবাদ, ছবি, ভিডিও ও সহযোগিতার জন্য আমাদের সঙ্গে যোগাযোগ করুন।
+    </p>
+   </div>
+   <div class="content-box">
+    <h3 data-bn="বার্তা পাঠান" data-en="Send a Message">বার্তা পাঠান</h3>
+    <form id="contactForm">
+     <input id="senderName" placeholder="আপনার নাম / Your Name" required>
+     <input id="senderEmail" type="email" placeholder="আপনার ইমেইল / Your Email" required>
+     <textarea id="senderMessage" placeholder="আপনার বার্তা / Your Message" required></textarea>
+     <button class="btn" type="submit" data-bn="বার্তা পাঠান" data-en="Send Message">বার্তা পাঠান</button>
+    </form>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container">
+  <div class="footer-grid">
+   <div>
+    <h3>MIRZANAGAR 360°</h3>
+    <p data-bn="আমাদের ইতিহাস, ঐতিহ্য, সংস্কৃতি ও মানুষের গল্প সংরক্ষণ এবং তুলে ধরার একটি ডিজিটাল উদ্যোগ।"
+    data-en="A digital initiative to preserve and share our history, heritage, culture and people's stories.">
+    আমাদের ইতিহাস, ঐতিহ্য, সংস্কৃতি ও মানুষের গল্প সংরক্ষণ এবং তুলে ধরার একটি ডিজিটাল উদ্যোগ।
+    </p>
+   </div>
+   <div><h3>EXPLORE</h3><a href="#about">About</a><a href="#founder">Founder</a><a href="#news">News</a></div>
+   <div><h3>CONNECT</h3><a href="#contact">Contact</a><a href="mailto:ourmirzanagar@gmail.com">Email Us</a></div>
+  </div>
+  <div class="copyright">
+   © <span id="year"></span> Mirzanagar 360°. All Rights Reserved.
+   <br>Founded by MD Imtiajul Hoque
+  </div>
+ </div>
+</footer>
+
+<script>
+let currentLanguage = 'bn';
+
+function toggleMenu(){
+ document.getElementById('nav').classList.toggle('open');
+}
+
+function toggleLanguage(){
+ currentLanguage = currentLanguage === 'bn' ? 'en' : 'bn';
+ document.documentElement.lang = currentLanguage;
+ document.querySelectorAll('[data-bn]').forEach(el=>{
+  el.textContent = el.getAttribute('data-' + currentLanguage);
+ });
+}
+
+document.querySelectorAll('#nav a').forEach(link=>{
+ link.addEventListener('click',()=>{
+  document.getElementById('nav').classList.remove('open');
+ });
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+document.getElementById('contactForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ const name = document.getElementById('senderName').value;
+ const email = document.getElementById('senderEmail').value;
+ const message = document.getElementById('senderMessage').value;
+ const subject = encodeURIComponent('Message from Mirzanagar 360 Website');
+ const body = encodeURIComponent(
+  'Name: '+name+'\nEmail: '+email+'\n\nMessage:\n'+message
+ );
+ window.location.href =
+  'mailto:ourmirzanagar@gmail.com?subject='+subject+'&body='+body;
+});
+</script>
+
 </body>
 </html>
+
 
