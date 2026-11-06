@@ -1,0 +1,37 @@
+media:
+  input: images
+  output: images
+
+content:
+  - name: sports
+    label: Sports
+    type: collection
+    path: content/sports
+    format: yaml
+    filename: "{year}-{month}-{day}-{primary}.yaml"
+    view:
+      fields: [title, category, date, cover]
+      primary: title
+    fields:
+      - name: title
+        label: Post Title
+        type: string
+        required: true
+      - name: category
+        label: Sports Category
+        type: select
+        options:
+          values:
+            - Football
+            - Cricket
+            - Badminton
+            - Other
+      - name: date
+        label: Date
+        type: date
+      - name: cover
+        label: Cover Photo
+        type: image
+      - name: description
+        label: Description
+        type: rich-text
