@@ -1,83 +1,90 @@
+
 const API_URL =
   "https://api.github.com/repos/mdimtiajulhoque/mirzanagar-360/contents/content/sports";
 
 async function loadSports() {
   const container = document.getElementById("sports-posts");
-
   if (!container) return;
 
   try {
     const response = await fetch(API_URL);
-
-    if (!response.ok) {
-      throw new Error("Could not load sports folder");
-    }
+    if (!response.ok) throw new Error("Sports folder not found");
 
     const files = await response.json();
-
     container.replaceChildren();
 
     for (const file of files) {
-      if (!/\.(yaml|yml|json)$/i.test(file.name)) continue;
+      if (!file.name.endsWith(".yaml") &&
+          !file.name.endsWith(".yml")) continue;
 
-      const fileResponse = await fetch(file.download_url);
-      const content = await fileResponse.text();
+      const rawResponse = await fetch(file.download_url);
+      if (!rawResponse.ok) continue;
 
-      let post;
+      const yaml = await rawResponse.text();
 
-      if (file.name.endsWith(".json")) {
-        post = JSON.parse(content);
-      } else {
-        // Simple YAML field reader
-        const getField = (name) => {
-          const match = content.match(
-            new RegExp("^" + name + ":\\\\s*(.*)$", "m")
-          );
-          return match ? match[1].replace(/^["']|["']$/g, "") : "";
-        };
-
-        post = {
-          title: getField("title"),
-          category: getField("category"),
-          description: getField("description"),
-          date: getField("date"),
-          cover: getField("cover")
-        };
+      function getField(name) {
+        const regex = new RegExp("^" + name + ":\\s*(.*)$", "m");
+        const match = yaml.match(regex);
+        return match ? match[1].trim() : "";
       }
+
+      const title = getField("title").replace(/^["']|["']$/g, "");
+      const category = getField("category");
+      const date = getField("date");
+      const cover = getField("cover").replace(/^["']|["']$/g, "");
+
+      const descriptionMatch = yaml.match(
+        /^description:\s*[>|-]*\s*\n([\s\S]*)$/m
+      );
+
+      const description = descriptionMatch
+        ? descriptionMatch[1]
+            .split("\n")
+            .map(line => line.replace(/^ {2}/, ""))
+            .join("\n")
+            .trim()
+        : "";
 
       const card = document.createElement("article");
       card.className = "card";
 
-      const title = document.createElement("h3");
-      title.textContent = post.title || "Sports Update";
-
-      const category = document.createElement("p");
-      category.textContent = post.category || "Sports";
-
-      const description = document.createElement("p");
-      description.textContent = post.description || "";
-
-      card.append(title, category, description);
-
-      if (post.cover) {
-        const img = document.createElement("img");
-        img.src = post.cover;
-        img.alt = post.title || "Sports photo";
-        img.loading = "lazy";
-        card.prepend(img);
+      if (cover) {
+        const image = document.createElement("img");
+        image.src = new URL(cover, document.baseURI).href;
+        image.alt = title;
+        image.loading = "lazy";
+        image.style.width = "100%";
+        image.style.borderRadius = "12px";
+        card.appendChild(image);
       }
+
+      const heading = document.createElement("h3");
+      heading.textContent = title || "Sports Update";
+      card.appendChild(heading);
+
+      const info = document.createElement("p");
+      info.textContent = `${category} | ${date}`;
+      card.appendChild(info);
+
+      const content = document.createElement("div");
+      content.style.whiteSpace = "pre-wrap";
+      content.textContent = description
+        .replace(/^## /gm, "")
+        .replace(/\*\*/g, "");
+      card.appendChild(content);
 
       container.appendChild(card);
     }
 
     if (!container.children.length) {
-      container.textContent = "No sports posts available yet.";
+      container.textContent = "No sports posts found.";
     }
 
   } catch (error) {
-    console.error(error);
+    console.error("Sports loading error:", error);
     container.textContent = "Sports posts could not be loaded.";
   }
 }
 
 loadSports();
+
